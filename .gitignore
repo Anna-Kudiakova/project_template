@@ -1,2 +1,4 @@
 .idea/
 .gitignore
+app/data
+tests/data
