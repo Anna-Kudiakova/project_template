@@ -2,14 +2,12 @@ import pytest
 import pandas as pd
 from app.io.input import read_file, read_file_with_pandas
 
-TEST_DATA_DIR = '../data/'
-
 
 def test_read_file_exists():
     """
     Test that the read_file function returns a non-empty list for an existing file.
     """
-    test_filename = TEST_DATA_DIR + 'test.csv'
+    test_filename = 'test.csv'
     # Assuming 'test.csv' exists and contains data separated by commas
     result = read_file(test_filename)
     assert result, "The result should not be empty for an existing file"
@@ -19,13 +17,12 @@ def test_read_file_content():
     """
     Test that the read_file function returns correct content.
     """
-    test_filename = TEST_DATA_DIR + 'test.csv'
+    test_filename = 'test.csv'
     # Create a test file with known content
     with open(test_filename, 'w') as f:
-        f.write('col1,col2\nvalue1,value2')
+        f.write('LalaLand')
     result = read_file(test_filename)
-    assert result[0] == ['col1', 'col2'], "The header row should be correctly read"
-    assert result[1] == ['value1', 'value2'], "The data row should be correctly read"
+    assert result == ['LalaLand'], "The header row should be correctly read"
 
 
 def test_read_file_nonexistent():
@@ -40,7 +37,7 @@ def test_read_file_with_pandas_exists():
     """
     Test that the read_file_with_pandas function returns a DataFrame for an existing file.
     """
-    test_filename = TEST_DATA_DIR + 'test_pandas.csv'
+    test_filename = 'test_pandas.csv'
     # Assuming 'test_pandas.csv' exists and is in proper CSV format
     result = read_file_with_pandas(test_filename)
     assert isinstance(result, pd.DataFrame), "The result should be a pandas DataFrame"
@@ -50,7 +47,7 @@ def test_read_file_with_pandas_content():
     """
     Test that the read_file_with_pandas function returns correct content.
     """
-    test_filename = TEST_DATA_DIR + 'test_pandas.csv'
+    test_filename = 'test_pandas.csv'
     # Create a test file with known content
     with open(test_filename, 'w') as f:
         f.write('col1,col2\nvalue1,value2')

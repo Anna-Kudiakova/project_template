@@ -7,9 +7,10 @@ def main():
     file_input = read_file('input.csv')
     file_input_pandas = read_file_with_pandas('input_pandas.csv')
     console_output(console_input)
-    console_input(file_input)
+    console_output(file_input)
     console_output(file_input_pandas)
     file_output(console_input, 'output.csv')
+    file_output(file_input, 'output_file.csv')
     file_output(file_input_pandas, 'output_pandas.csv')
 
 
