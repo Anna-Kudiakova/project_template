@@ -2,7 +2,6 @@ import pandas as pd
 from pathlib import Path
 
 
-
 def read_console():
     """
     Prompt the user to enter their name via the console and return it.
@@ -27,8 +26,7 @@ def read_file(filename):
     data_folder = Path(__file__).parent.parent / 'data'
     file_path = data_folder / filename
     with file_path.open('r') as file:
-        for line in file:
-            lines = line.split(',')
+        lines = file.readlines()
     return lines
 
 

@@ -17,5 +17,5 @@ def file_output(data, filename):
         data (str): The data to be written to the file.
         filename (str): The name of the file to write the data into the 'data' directory.
     """
-    with open(f'./data/{filename}', 'w') as file:
-        file.write(data)
+    with open(f'./app/data/{filename}', 'w') as file:
+        file.writelines(data)
